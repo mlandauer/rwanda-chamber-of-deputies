@@ -7,11 +7,11 @@ require 'date'
 require 'open-uri'
 require 'date'
 
-require 'colorize'
-require 'pry'
-require 'csv'
-require 'open-uri/cached'
-OpenURI::Cache.cache_path = '.cache'
+# require 'colorize'
+# require 'pry'
+# require 'csv'
+# require 'open-uri/cached'
+# OpenURI::Cache.cache_path = '.cache'
 
 @BASE = 'http://www.parliament.gov.rw/'
 @PAGE = @BASE + 'chamber-of-deputies/members-profile/chamber-of-deputies-members-profile/'
@@ -42,5 +42,5 @@ page.css('table#memberList tr').drop(1).each do |mem|
     source: @PAGE,
   }
   puts data
-  # ScraperWiki.save_sqlite([:id, :term], data)
+  ScraperWiki.save_sqlite([:id, :term], data)
 end

@@ -35,7 +35,7 @@ page.css('table#memberList tr').drop(1).each do |mem|
     family_name: tds[0].text.strip,
     given_name: tds[1].text.strip,
     email: tds[2].text.strip,
-    party: tds[3].text.gsub(/[[:space:]]+/, ' ').strip,
+    party: tds[3].text.gsub(/[[:space:]]+/, ' ').gsub(/\s+\-\s+/,'-').strip,
     area: tds[4].text.strip,
     website: tds[5].css('a/@href').text,
     term: '2013',

@@ -38,7 +38,7 @@ page.css('table#memberList tr').drop(1).each do |mem|
     party: tds[3].text.gsub(/[[:space:]]+/, ' ').strip,
     area: tds[4].text.strip,
     website: tds[5].css('a/@href').text,
-    term: '2010',
+    term: '2013',
     source: @PAGE,
   }
   puts data

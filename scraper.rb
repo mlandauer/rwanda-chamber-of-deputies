@@ -41,6 +41,8 @@ page.css('table#memberList tr').drop(1).each do |mem|
     term: '2013',
     source: @PAGE,
   }
+  data[:name] = data[:given_name] + " " + data[:family_name]
+  data[:sort_name] = data[:family_name] + " " + data[:given_name]
   puts data
   ScraperWiki.save_sqlite([:id, :term], data)
 end

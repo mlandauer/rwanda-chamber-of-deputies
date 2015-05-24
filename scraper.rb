@@ -6,6 +6,7 @@ require 'nokogiri'
 require 'date'
 require 'open-uri'
 require 'date'
+require 'csv'
 
 # require 'colorize'
 # require 'pry'
@@ -43,7 +44,7 @@ alldata = page.css('table#memberList tr').drop(1).map do |mem|
   }
   data[:name] = data[:given_name] + " " + data[:family_name]
   data[:sort_name] = data[:family_name] + " " + data[:given_name]
-  puts data
+  puts data.values.to_csv
   data
 end
 

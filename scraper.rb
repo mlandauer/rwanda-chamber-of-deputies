@@ -29,7 +29,7 @@ end
 
 
 page = noko(@PAGE)
-alldata = page.css('table#memberList tr').drop(1).map do |mem|
+alldata = page.css('table#memberList tr').drop(1).each do |mem|
   tds = mem.css('td')
   data = { 
     id: tds[5].css('a/@href').text[/detailId=(\d+)/, 1],
@@ -45,7 +45,7 @@ alldata = page.css('table#memberList tr').drop(1).map do |mem|
   data[:name] = data[:given_name] + " " + data[:family_name]
   data[:sort_name] = data[:family_name] + " " + data[:given_name]
   puts data.values.to_csv
-  data
+  sleep 1
+  ScraperWiki.save_sqlite([:id, :term], alldata)
 end
 
-ScraperWiki.save_sqlite([:id, :term], alldata)

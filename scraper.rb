@@ -44,7 +44,7 @@ alldata = page.css('table#memberList tr').drop(1).map do |mem|
   }
   data[:name] = data[:given_name] + " " + data[:family_name]
   data[:sort_name] = data[:family_name] + " " + data[:given_name]
-  puts data.values.to_csv
+  #puts data.values.to_csv
   data
 end
 

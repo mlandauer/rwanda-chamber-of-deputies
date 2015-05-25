@@ -20,7 +20,7 @@ require 'csv'
 def noko(url)
   url.prepend @BASE unless url.start_with? 'http:'
   warn "Getting #{url}"
-  Nokogiri::HTML(open(url).read) 
+  Nokogiri::HTML(open(url).read)
 end
 
 def datefrom(date)
@@ -31,7 +31,7 @@ end
 page = noko(@PAGE)
 alldata = page.css('table#memberList tr').drop(1).map do |mem|
   tds = mem.css('td')
-  data = { 
+  data = {
     id: tds[5].css('a/@href').text[/detailId=(\d+)/, 1],
     family_name: tds[0].text.strip,
     given_name: tds[1].text.strip,
